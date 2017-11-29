@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using static System.Console;
+
+namespace homework1_task4
+{//задание 4, обмен значениями двух переменных
+ //Павел Сергазиев, С#-1, группа 28.11.17
+    class Program
+    {
+        static void Main()
+        {
+            WriteLine("===МАГИЧЕСКИ ПРЕВРАЩАЕМ ИКС В ИГРЕК===\n");
+
+            Write("Введите ИКС - ");
+            string a = ReadLine();
+
+            Write("Введите ИГРЕК - ");
+            string b = ReadLine();
+
+            //обмен значениями двух переменных с использованием третьей
+            string c = a;
+            a = b;
+            b = c;
+
+            WriteLine($"\nВаш ИКС теперь равен {a}, а ИГРЕК равен {b}.\n");
+
+
+            //обмен значениями двух переменных без использования третьей - через substring
+            a = a + b;
+            b = a.Substring(0,a.Length - b.Length);
+            a = a.Substring(b.Length);
+            WriteLine($"Ваш ИКС теперь снова равен {a}, а ИГРЕК опять равен {b}.\n");
+
+            WriteLine("Нажмите любую клавишу для завершения");
+            ReadLine();
+        }
+    }
+}
