@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using static System.Console;
+
+namespace homework1_task3
+{ //Задание 3, программа должна посчитать расстояние между двумя точками с заданнми координатами по приведённой формуле
+    //Павел Сергазиев, С#-1, группа 28.11.17
+    class Program
+    {
+        static void Main()
+        {
+            WriteLine("---СЧИТАЕМ РАССТОЯНИЕ МЕЖДУ ТОЧКАМИ НА ПЛОСКОСТИ---\n\n");
+
+            
+            WriteLine("Введите координаты первой точки:");
+            Write("X равен ");
+            int x1 = Convert.ToInt32(ReadLine());
+            
+            Write("Y равен ");
+            int y1 = Convert.ToInt32(ReadLine());
+
+            WriteLine("\nВведите координаты второй точки:");
+            Write("X равен ");
+            int x2 = Convert.ToInt32(ReadLine());
+
+            Write("Y равен ");
+            int y2 = Convert.ToInt32(ReadLine());
+
+
+            //ищем и выводим расстояние внутри Main
+            double distance = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+            WriteLine("\nРасстояние между точками равно {0:F2} \n", distance);
+
+            //подсчёт расстояния через вызов метода
+            WriteLine("Расстояние между точками равно {0:F2} \n", CountDistance(x1,y1,x2,y2));
+
+            WriteLine("Нажмите любую клавишу для завершения");
+            ReadKey();
+            
+        }
+
+        //метод для подсчёта расстояния между точками
+        static double CountDistance(double x1,double y1,double x2,double y2)
+        {
+            return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+        }
+    }
+}
