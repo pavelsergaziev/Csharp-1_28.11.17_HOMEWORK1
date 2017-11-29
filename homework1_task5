@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using static System.Console;
+
+namespace homework1_task5
+{//Задание 5, программа, выводящая имя, фамилию и город проживания, в т.ч. - в центр экрана
+    //Павел Сергазиев, С#-1, группа 28.11.17
+    class Program
+    {
+        static void Main()
+        {
+
+            WriteLine("ВЫВОД ИМЕНИ, ФАМИЛИИ И ГОРОДА ПРОЖИВАНИЯ\n\n");
+
+            WriteLine("Введите своё имя");
+            string name = ReadLine();
+
+            WriteLine("Введите свою фамилию");
+            string surname = ReadLine();
+
+            WriteLine("Введите название города, в котором вы живёте");
+            string city = ReadLine();
+
+            string result = ($"Вы - {name} {surname}, проживаете в городе {city}");
+
+            //Просто вывод данных на экран
+            WriteLine(result);
+
+            WriteLine("Нажмите любую клавишу для вывода этого всего в центре экрана");
+            ReadLine();
+
+
+
+            //Вывод, сориентированный по центру экрана
+
+            Clear();//Console.Clear() - очищение экрана
+            int textStartPointX = (WindowWidth / 2) - (result.Length / 2);//Console.WindowHeight, ну и Width - возвращают длину/ширину экрана консоли в символах(не в пикселях!)
+            int textStartPointY = (WindowHeight / 2) - 1;
+            SetCursorPosition(textStartPointX, textStartPointY);//Console.SetCursorPosition(x,y) - ставит курсор в указанное место, опять же считает в символах.
+
+            WriteLine(result);
+
+            ReadLine();
+            Clear();
+
+            //Делаем вывод по центру посредством метода, который печатает из заданной точки на экране консоли
+            WriteLine("Теперь методом");            
+            PrintAtXY(result, textStartPointX, textStartPointY);
+
+            ReadLine();
+            Clear();
+
+            //Подключаем класс и берём метод из него - закомментил, чтобы программа не ругалась, если файл с классом ещё не подключен
+            //WriteLine("Теперь методом из статического класса");            
+            //CshCourseBaseClass.PrintAtXY(result, textStartPointX, textStartPointY);
+            //WriteLine();
+            //CshCourseBaseClass.Pause();
+
+        }
+
+        static void PrintAtXY (string text, int x, int y)
+        {
+            SetCursorPosition(x,y);
+            WriteLine(text);
+        }
+    }
+}
